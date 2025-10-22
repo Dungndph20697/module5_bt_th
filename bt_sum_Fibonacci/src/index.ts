@@ -4,7 +4,7 @@ function fibonacci(n: number): number {
     return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-let num = 10; 
+let num = 10;
 let sum = 0;
 
 console.log("Dãy Fibonacci:");
