@@ -14,6 +14,7 @@ import DoiMauNen from "./components/th_doi_mau_mau_nen";
 import ThongBao from "./components/th_thong_bao";
 import "bootstrap/dist/css/bootstrap.min.css";
 import LoginLogout from "./components/th_user_login_logout/th_user_login_logout";
+import TodoApp from "./components/bt_crud_hs/todoApp";
 
 function App() {
   const [page, setPage] = useState("home");
@@ -48,85 +49,123 @@ function App() {
         return <ThongBao />;
       case "loginLogout":
         return <LoginLogout />;
+      case "crud_hs":
+        return <TodoApp />;
       default:
-        return <Welcome name="Admin" />;
+        return <TodoApp />;
     }
   };
 
   return (
-    <div>
-      <nav
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          gap: "20px",
-          padding: "10px",
-          background: "#eee",
-        }}
-      >
-        <button class="btn btn-primary" onClick={() => setPage("showName")}>
-          Hiển thị tên
-        </button>
-        <button
-          class="btn btn-primary"
-          onClick={() => setPage("showListFruit")}
+    <div className="container-fluid">
+      <div className="row">
+        {/* Cột bên trái */}
+        <div
+          className="col-2 bg-light"
+          style={{
+            minHeight: "100vh",
+            padding: "20px",
+            borderRight: "1px solid #ccc",
+          }}
         >
-          Hiển thị danh sách hoa quả
-        </button>
-        <button class="btn btn-primary" onClick={() => setPage("showTime")}>
-          Hiển thị thời gian
-        </button>
-        <button
-          class="btn btn-primary"
-          onClick={() => setPage("ShowInfoBrower")}
-        >
-          ShowInfoBrower
-        </button>
-        <button class="btn btn-primary" onClick={() => setPage("showstudents")}>
-          Show students
-        </button>
-        <button class="btn btn-primary" onClick={() => setPage("showProfile")}>
-          Show profile
-        </button>
-        <button
-          class="btn btn-primary"
-          onClick={() => setPage("showFormLogin")}
-        >
-          Show form login
-        </button>
-        <button class="btn btn-primary" onClick={() => setPage("welcome")}>
-          Show welcome
-        </button>
-        <button
-          class="btn btn-primary"
-          onClick={() => setPage("th_classComponent")}
-        >
-          Class component
-        </button>
-        <button
-          class="btn btn-primary"
-          onClick={() => setPage("th_functionComponent")}
-        >
-          Function component
-        </button>
-        <button
-          class="btn btn-primary"
-          onClick={() => setPage("buutton_tang_giam")}
-        >
-          Button tăng giảm
-        </button>
-        <button class="btn btn-primary" onClick={() => setPage("doiMauNen")}>
-          Đổi màu nền
-        </button>
-        <button class="btn btn-primary" onClick={() => setPage("thongBao")}>
-          Thông báo
-        </button>
-        <button class="btn btn-primary" onClick={() => setPage("loginLogout")}>
-          User Login Logout
-        </button>
-      </nav>
+          <h5 className="text-center mb-4">Danh mục chức năng</h5>
+          <div className="d-flex flex-column gap-2">
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("crud_hs")}
+            >
+              CRUD học sinh
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("showName")}
+            >
+              Hiển thị tên
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("showListFruit")}
+            >
+              Hiển thị danh sách hoa quả
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("showTime")}
+            >
+              Hiển thị thời gian
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("ShowInfoBrower")}
+            >
+              Show Info Brower
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("showstudents")}
+            >
+              Show students
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("showProfile")}
+            >
+              Show profile
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("showFormLogin")}
+            >
+              Show form login
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("welcome")}
+            >
+              Show welcome
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("th_classComponent")}
+            >
+              Class component
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("th_functionComponent")}
+            >
+              Function component
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("buutton_tang_giam")}
+            >
+              Button tăng giảm
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("doiMauNen")}
+            >
+              Đổi màu nền
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("thongBao")}
+            >
+              Thông báo
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("loginLogout")}
+            >
+              User Login Logout
+            </button>
+          </div>
+        </div>
 
-      <div style={{ marginTop: "30px" }}>{renderPage()}</div>
+        {/* Cột bên phải */}
+        <div className="col-10 p-4">{renderPage()}</div>
+      </div>
     </div>
   );
 }
