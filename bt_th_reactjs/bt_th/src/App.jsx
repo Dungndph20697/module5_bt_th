@@ -15,12 +15,24 @@ import ThongBao from "./components/th_thong_bao";
 import "bootstrap/dist/css/bootstrap.min.css";
 import LoginLogout from "./components/th_user_login_logout/th_user_login_logout";
 import TodoApp from "./components/bt_crud_hs/todoApp";
+import Counter from "./components/th_trien_khai_userState/Counter";
+import Selector from "./components/th_trien_khai_userEffect/Selector";
+import MyClock from "./components/th_hook_Custom/MyClock";
+import FormDangky from "./components/th_form_dki_tai_Khoan/FormDangKy";
 
 function App() {
   const [page, setPage] = useState("home");
 
   const renderPage = () => {
     switch (page) {
+      case "showForm":
+        return <FormDangky />;
+      case "showClock":
+        return <MyClock />;
+      case "trienKhaiUserEffect":
+        return <Selector />;
+      case "trienKhaiUserState":
+        return <Counter />;
       case "show name":
         return <ShowName />;
       case "showListFruit":
@@ -70,6 +82,31 @@ function App() {
         >
           <h5 className="text-center mb-4">Danh mục chức năng</h5>
           <div className="d-flex flex-column gap-2">
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("showForm")}
+            >
+              Show Form
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("showClock")}
+            >
+              Show Clock
+            </button>
+
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("trienKhaiUserEffect")}
+            >
+              Triển khai user useEffect
+            </button>
+            <button
+              className="btn btn-primary"
+              onClick={() => setPage("trienKhaiUserState")}
+            >
+              Triển khai useState
+            </button>
             <button
               className="btn btn-primary"
               onClick={() => setPage("crud_hs")}
